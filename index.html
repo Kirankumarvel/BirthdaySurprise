@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Your Special Birthday Celebration 🎉</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com" />
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+   <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+   <style>
+      * {
+         margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Happy Monkey', cursive;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #333;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .welcome-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            border: 8px solid;
+            border-image: linear-gradient(45deg, #ff6b6b, #4ecdc4) 1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .welcome-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 0px rgba(255, 107, 107, 0.2);
+        }
+
+        .heart {
+            color: #ff6b6b;
+            animation: heartbeat 1.2s infinite;
+            display: inline-block;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .birthday-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .form-group {
+            text-align: left;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #ff6b6b;
+            font-size: 1.1rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 3px solid #4ecdc4;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3);
+            transform: scale(1.02);
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(255, 107, 107, 0.4);
+            background: linear-gradient(45deg, #ff8e53, #ff6b6b);
+        }
+
+        .submit-btn:active {
+            transform: translateY(1px);
+        }
+
+        .birthday-header {
+            display: none;
+            margin: 40px 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .birthday-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #ff6b6b;
+            margin: 20px 0;
+            text-shadow: 2px 2px 0px rgba(255, 107, 107, 0.2);
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 30px auto;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid white;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            animation: spin 20s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .avatar-frame {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border: 3px dashed #4ecdc4;
+            border-radius: 50%;
+            animation: rotateFrame 60s linear infinite;
+        }
+
+        @keyframes rotateFrame {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .birthday-info {
+            background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 10px;
+            font-size: 1.3rem;
+            box-shadow: 0 8px 20px rgba(78, 205, 196, 0.3);
+        }
+
+        .gift-section {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px auto;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            max-width: 600px;
+            transition: transform 0.3s ease;
+        }
+
+        .gift-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .gift-title {
+            color: #ff6b6b;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .gift-hint {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .gift-box {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            border-radius: 15px;
+            margin: 0 auto;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .gift-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .gift-box::before {
+            content: '🎁';
+            font-size: 3rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .gift-content {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .gift-box:hover .gift-content {
+            opacity: 1;
+        }
+
+        .message-card {
+            display: none;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px auto;
+            max-width: 600px;
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4); }
+            50% { box-shadow: 0 20px 60px rgba(102, 126, 234, 0.6); }
+            100% { box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4); }
+        }
+
+        .personal-message {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            text-align: right;
+            color: #ffd166;
+        }
+
+        .footer {
+            display: none;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #ff6b6b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1000;
+            display: none;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: var(--c);
+            top: -20px;
+            opacity: 0;
+            animation: confetti-fall 3s linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .music-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            transition: transform 0.3s ease;
+        }
+
+        .music-control:hover {
+            transform: scale(1.1);
+        }
+
+        .music-control i {
+            font-size: 24px;
+            color: #ff6b6b;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .welcome-title {
+                font-size: 2.5rem;
+            }
+            
+            .birthday-name {
+                font-size: 3rem;
+            }
+            
+            .avatar-container {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .gift-box {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Music Control -->
+    <div class="music-control" onclick="toggleMusic()">
+        <i>🎵</i>
+    </div>
+
+    <!-- Confetti Container -->
+    <div class="confetti" id="confettiContainer"></div>
+
+    <div class="container">
+        <!-- Welcome Section -->
+        <div class="welcome-card" id="welcomeCard">
+            <div class="welcome-title">
+                <span class="heart">❤️</span> A Very Special Birthday <span class="heart">❤️</span>
+            </div>
+            
+            <p class="subtitle">
+                Today isn't just another day on the calendar. It's the day the world became brighter, 
+                the day someone truly amazing was born. Someone who makes life more beautiful just by existing.
+            </p>
+            
+            <p class="subtitle">
+                Please fill in your details so we can create a personalized celebration just for you!
+            </p>
+            
+            <form class="birthday-form" id="birthdayForm">
+                <div class="form-group">
+                    <label for="name">Your Beautiful Name:</label>
+                    <input type="text" id="name" class="form-input" placeholder="Enter your name..." required />
+                </div>
+                
+                <div class="form-group">
+                    <label for="age">Your Wonderful Age:</label>
+                    <input type="number" id="age" class="form-input" placeholder="How young are you feeling today?" min="1" max="120" required />
+                </div>
+                
+                <div class="form-group">
+                    <label for="dob">Your Special Date:</label>
+                    <input type="date" id="dob" class="form-input" required />
+                </div>
+                
+                <div class="form-group">
+                    <label for="picture">Your Amazing Photo:</label>
+                    <input type="file" id="picture" class="form-input" accept="image/*" required />
+                </div>
+                
+                <button type="button" class="submit-btn" onclick="celebrateBirthday()">
+                    🎂 Begin Your Celebration 🎂
+                </button>
+            </form>
+        </div>
+
+        <!-- Birthday Display -->
+        <div class="birthday-header" id="birthdayHeader">
+            <h1 class="birthday-name" id="birthdayName"></h1>
+            
+            <div class="avatar-container">
+                <img id="birthdayImage" class="avatar" src="" alt="Birthday Star" />
+                <div class="avatar-frame"></div>
+            </div>
+            
+            <div class="birthday-info" id="birthdayAge"></div>
+            <div class="birthday-info" id="birthdayDate"></div>
+        </div>
+
+        <!-- Personal Message -->
+        <div class="message-card" id="messageCard">
+            <p class="personal-message" id="personalMessage"></p>
+            <div class="signature">With love ❤️</div>
+        </div>
+
+        <!-- Gift Sections -->
+        <div class="gift-section" id="gift1">
+            <h2 class="gift-title">This is how happy I am for you today! 🌟</h2>
+            <p class="gift-hint">(Hover over the gift to see the magic)</p>
+            <div class="gift-box" onmouseover="this.querySelector('.gift-content').style.backgroundImage='url(https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif)'">
+                <div class="gift-content"></div>
+            </div>
+        </div>
+
+        <div class="gift-section" id="gift2">
+            <h2 class="gift-title">How people react when you enter the room ✨</h2>
+            <div class="gift-box" onmouseover="this.querySelector('.gift-content').style.backgroundImage='url(https://media1.tenor.com/m/Ei52bkDv6CkAAAAd/friends-friends-tv.gif)'">
+                <div class="gift-content"></div>
+            </div>
+        </div>
+
+      <div class="gift-section" id="gift3">
+          <h2 class="gift-title">If I had to describe you with ONE word 💫</h2>
+          <div class="gift-box" onmouseover="this.querySelector('.gift-content').style.backgroundImage='url(https://media1.tenor.com/m/7y5QI_iXhBkAAAAd/attack-on-titan-salute.gif)'">
+         <div class="gift-content"></div>
+          </div>
+      </div>
+
+      <div class="gift-section" id="gift4">
+          <h2 class="gift-title">Your superpower that inspires everyone 🌈</h2>
+          <div class="gift-box" onmouseover="this.querySelector('.gift-content').style.backgroundImage='url(https://media1.tenor.com/m/1nLVuHkGBSAAAAAd/the-simpsons-bart-simpson.gif)'">
+         <div class="gift-content"></div>
+          </div>
+      </div>
+
+      <div class="gift-section" id="gift5">
+          <h2 class="gift-title">This is my wish for you this year 🌠</h2>
+          <div class="gift-box" onmouseover="this.querySelector('.gift-content').style.backgroundImage='url(https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2huZWF6cnY3OGt6MHJqYWJjaDl0ZW5waGkzam10Yjg1Z2wwNm1jciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/eCDzasL6gt7O50q1D1/giphy.gif)'">
+         <div class="gift-content"></div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer" id="footer">
+            <p>
+                Created with <span style="color: #ff6b6b;">❤️</span> by 
+                <a href="https://github.com/Kirankumarvel/BirthdaySurprise" target="_blank">KK</a>
+            </p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">
+                May your year ahead be as wonderful as you are!
+            </p>
+        </div>
+    </div>
+
+    <!-- Audio -->
+    <audio id="birthdayAudio" loop>
+        <source src="./happybirthday.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Create confetti
+        function createConfetti() {
+            const container = document.getElementById('confettiContainer');
+            container.style.display = 'block';
+            container.innerHTML = '';
+            
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3'];
+            
+            for (let i = 0; i < 150; i++) {
+                const piece = document.createElement('div');
+                piece.className = 'confetti-piece';
+                piece.style.left = Math.random() * 100 + 'vw';
+                piece.style.animationDelay = Math.random() * 2 + 's';
+                piece.style.setProperty('--c', colors[Math.floor(Math.random() * colors.length)]);
+                piece.style.width = Math.random() * 20 + 5 + 'px';
+                piece.style.height = piece.style.width;
+                container.appendChild(piece);
+            }
+            
+            setTimeout(() => {
+                container.style.display = 'none';
+            }, 3000);
+        }
+
+        // Generate personal message
+        function generatePersonalMessage(name, age) {
+            const messages = [
+                `Dear ${name}, on your ${age}th trip around the sun, remember that you are more loved and appreciated than words could ever express. Your presence in this world makes it a better place.`,
+                `To the amazing ${name}! ${age} looks absolutely incredible on you. May this year bring you endless laughter, unforgettable adventures, and dreams that come true.`,
+                `Happy Birthday, ${name}! At ${age}, you're not getting older, you're getting more fabulous! Your kindness and beautiful soul inspire everyone around you.`,
+                `${name}, my wish for you on your ${age}th birthday is simple: may you always see the magic in ordinary moments and may happiness follow you everywhere.`,
+                `To someone who deserves the world and more - happy ${age}th birthday, ${name}! Never forget how truly special you are to so many people.`
+            ];
+            
+            return messages[Math.floor(Math.random() * messages.length)];
+        }
+
+        // Toggle music
+        function toggleMusic() {
+            const audio = document.getElementById('birthdayAudio');
+            const musicControl = document.querySelector('.music-control i');
+            
+            if (audio.paused) {
+                audio.play();
+                musicControl.textContent = '🔊';
+            } else {
+                audio.pause();
+                musicControl.textContent = '🎵';
+            }
+        }
+
+        // Main celebration function
+        function celebrateBirthday() {
+            const name = document.getElementById('name').value.trim();
+            const age = document.getElementById('age').value;
+            const dob = new Date(document.getElementById('dob').value);
+            const picture = document.getElementById('picture').files[0];
+            
+            if (!name || !age || !dob || !picture) {
+                alert('Please fill in all the details to begin your celebration! 🎉');
+                return;
+            }
+            
+            // Read and display image
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('birthdayImage').src = e.target.result;
+                
+                // Display birthday information
+                document.getElementById('birthdayName').textContent = `Happy Birthday, ${name}! 🎂`;
+                document.getElementById('birthdayAge').textContent = `🎈 ${age} Years of Amazingness 🎈`;
+                document.getElementById('birthdayDate').textContent = `📅 Born on: ${dob.toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                })}`;
+                
+                // Show all sections
+                document.getElementById('birthdayHeader').style.display = 'block';
+                document.getElementById('messageCard').style.display = 'block';
+                document.getElementById('footer').style.display = 'block';
+                
+                // Generate and display personal message
+                document.getElementById('personalMessage').textContent = generatePersonalMessage(name, age);
+                
+                // Show gift sections with delay for dramatic effect
+                const gifts = ['gift1', 'gift2', 'gift3', 'gift4', 'gift5'];
+                gifts.forEach((giftId, index) => {
+                    setTimeout(() => {
+                        document.getElementById(giftId).style.display = 'block';
+                    }, index * 300);
+                });
+                
+                // Hide welcome card
+                document.getElementById('welcomeCard').style.display = 'none';
+                
+                // Start celebrations
+                createConfetti();
+                document.getElementById('birthdayAudio').play().catch(e => console.log("Autoplay prevented:", e));
+                
+                // Add floating hearts animation
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => createFloatingHeart(), i * 100);
+                }
+            };
+            reader.readAsDataURL(picture);
+        }
+
+        // Create floating hearts
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.style.position = 'fixed';
+            heart.style.fontSize = Math.random() * 30 + 20 + 'px';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            heart.style.zIndex = '999';
+            heart.style.opacity = '0.8';
+            heart.style.pointerEvents = 'none';
+            document.body.appendChild(heart);
+            
+            const animation = heart.animate([
+                { transform: 'translateY(0) rotate(0deg)', opacity: 0.8 },
+                { transform: `translateY(-100vh) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+            ], {
+                duration: Math.random() * 3000 + 2000,
+                easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+            });
+            
+            animation.onfinish = () => heart.remove();
+        }
+
+        // Auto-set max date to today for date picker
+        document.getElementById('dob').max = new Date().toISOString().split('T')[0];
+        
+        // Add some initial animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('.form-input');
+            inputs.forEach((input, index) => {
+                setTimeout(() => {
+                    input.style.animationDelay = '0s';
+                }, index * 100);
+            });
+            
+            // Preload music
+            const audio = document.getElementById('birthdayAudio');
+            audio.volume = 0.3;
+        });
+        
+    </script>
+    <audio id="birthdayAudio" src="./happybirthday.mp3" preload="auto"></audio>
+</body>
+</html>
